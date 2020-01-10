@@ -69,7 +69,7 @@
         <h2>O nas</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero
             optio esse quisquam illo omnis.</p>
-        <img src="images/signature.svg" class="about-us--text-signature" alt="Signature"/>
+        <img src="../../resources/images/signature.svg" class="about-us--text-signature" alt="Signature"/>
     </div>
     <div class="about-us--image"><img src="<c:url value="../../resources/images/about-us.jpg"/>" alt="People in circle"/>
     </div>
@@ -84,6 +84,9 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
+            <c:forEach items="">
+
+            </c:forEach>
             <li>
                 <div class="col">
                     <div class="title">Fundacja "Dbam o Zdrowie"</div>
