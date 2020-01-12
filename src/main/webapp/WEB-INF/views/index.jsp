@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<c:url value="../../resources/css/style.css"/>"/>
 </head>
 <body>
-<%@ include file="footer_header/header.jsp"%>
+<%@ include file="footer_header/header.jsp" %>
 
 <section class="stats">
     <div class="container container--85">
@@ -26,7 +26,7 @@
         </div>
 
         <div class="stats--item">
-            <em>5</em>
+            <em>${numberOfInstitutions}</em>
             <h3>Wspartych organizacji</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
@@ -71,7 +71,8 @@
             optio esse quisquam illo omnis.</p>
         <img src="../../resources/images/signature.svg" class="about-us--text-signature" alt="Signature"/>
     </div>
-    <div class="about-us--image"><img src="<c:url value="../../resources/images/about-us.jpg"/>" alt="People in circle"/>
+    <div class="about-us--image"><img src="<c:url value="../../resources/images/about-us.jpg"/>"
+                                      alt="People in circle"/>
     </div>
 </section>
 
@@ -84,39 +85,31 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <c:forEach items="">
+            <c:forEach items="${institutionsList}" var="institution" varStatus="status">
 
+                <c:choose>
+                    <c:when test="${status.index %2 == 0}">
+                        <li>
+                    </c:when>
+                    <div class="col">
+                        <div class="title">Fundacja ${institution.name}</div>
+                        <div class="subtitle">Cel i misja: ${institution.description}</div>
+                    </div>
+                    <div class="col">
+                        <div class="title">Fundacja ${institution.name}</div>
+                        <div class="subtitle">Cel i misja: ${institution.description}</div>
+                    </div>
+                    <c:otherwise>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
             </c:forEach>
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
-
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                </div>
-            </li>
-
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
-            </li>
-
         </ul>
     </div>
 
 </section>
 
-<%@ include file="footer_header/footer.jsp"%>
+<%@ include file="footer_header/footer.jsp" %>
 
 <script src="<c:url value="../../resources/js/app.js"/>"></script>
 </body>
