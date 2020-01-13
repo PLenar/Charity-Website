@@ -18,7 +18,7 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em>13</em>
+            <em>${numberOfBags}</em>
 
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
@@ -85,25 +85,19 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <c:forEach items="${institutionsList}" var="institution" varStatus="status">
+            <c:forEach varStatus="loop" var="institution" items="${institutionsList}">
+            <c:if test="${(loop.index) % 2 == 0}">
+            </li>
+            <li>
+                </c:if>
 
-                <c:choose>
-                    <c:when test="${status.index %2 == 0}">
-                        <li>
-                    </c:when>
-                    <div class="col">
-                        <div class="title">Fundacja ${institution.name}</div>
-                        <div class="subtitle">Cel i misja: ${institution.description}</div>
-                    </div>
-                    <div class="col">
-                        <div class="title">Fundacja ${institution.name}</div>
-                        <div class="subtitle">Cel i misja: ${institution.description}</div>
-                    </div>
-                    <c:otherwise>
-                        </li>
-                    </c:otherwise>
-                </c:choose>
-            </c:forEach>
+                <div class="col">
+                    <div class="title">${institution.name}</div>
+                    <div class="subtitle">${institution.description}</div>
+                </div>
+
+                </c:forEach>
+
         </ul>
     </div>
 

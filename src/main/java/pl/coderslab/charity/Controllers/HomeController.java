@@ -32,11 +32,7 @@ public class HomeController {
         model.addAttribute("institutionsList", institutionsList);
         Long numberOfInstitutions = institutionRepository.count();
         model.addAttribute("numberOfInstitutions", numberOfInstitutions);
-        List<Donation> donationList = donationRepository.findAll();
-        int numberOfBags = 0;
-        for (Donation d:donationList){
-            numberOfBags += d.getQuantity();
-        }
+        Long numberOfBags = donationRepository.countAllBags();
         model.addAttribute("numberOfBags", numberOfBags);
         return "index";
     }
