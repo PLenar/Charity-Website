@@ -30,7 +30,7 @@ public class HomeController {
     public String homeAction(Model model){
         List<Institution> institutionsList = institutionRepository.findAll();
         model.addAttribute("institutionsList", institutionsList);
-        Long numberOfInstitutions = institutionRepository.count();
+        Long numberOfInstitutions = donationRepository.getCountOfInstitutionWithDonations();
         model.addAttribute("numberOfInstitutions", numberOfInstitutions);
         Long numberOfBags = donationRepository.countAllBags();
         model.addAttribute("numberOfBags", numberOfBags);
