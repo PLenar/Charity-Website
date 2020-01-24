@@ -7,4 +7,7 @@ import java.util.List;
 
 public interface InstitutionRepository extends JpaRepository<Institution, Long> {
 
+    Institution findFirstByName(String s);
+
+    Institution findFirstById(Long id);
 }

@@ -35,9 +35,4 @@ public class Donation {
     private LocalTime pickUpTime;
     private String pickUpComment;
 
-    @PrePersist
-    public void prePersist() {
-        pickUpDate = LocalDate.now();
-        pickUpTime = LocalTime.now();
-    }
 }
